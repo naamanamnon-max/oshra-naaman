@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Heebo", "Rubik", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Rubik", "Heebo", "Segoe UI", system-ui, sans-serif;
+
+  /* Sage — reserved for WhatsApp brand recognition only. */
+  --color-sage-50: #f4f6ef;
+  --color-sage-100: #e6ebda;
+  --color-sage-200: #cfd9b7;
+  --color-sage-300: #b3c390;
+  --color-sage-400: #a3b18a;
+  --color-sage-500: #869a6c;
+  --color-sage-600: #6b7d55;
+  --color-sage-700: #556345;
+  --color-sage-800: #46503a;
+  --color-sage-900: #3b4332;
+
+  /* Cream — background. Soft, warm, lavender-tinted for a calming feel. */
+  --color-cream-50: #fdfbff;
+  --color-cream-100: #f8f4fc;
+  --color-cream-200: #f0e9f7;
+  --color-cream-300: #e4d7f0;
+
+  --animate-fade-in: fade-in 0.7s ease-out both;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Glow used only by the floating WhatsApp button — kept in WhatsApp's brand green. */
+@keyframes pulse-soft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(134, 154, 108, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(134, 154, 108, 0);
+  }
+}
+
+/* Accessibility: root font-size scaling. All type uses rem, so this cascades site-wide. */
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+html[data-fs="lg"] {
+  font-size: 112.5%;
+}
+
+html[data-fs="xl"] {
+  font-size: 125%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream-100);
+  color: var(--color-purple-950);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-violet-300);
+  color: var(--color-purple-950);
+}
+
+/* Slim, elegant scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-200);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-purple-300);
+  border-radius: 999px;
+  border: 2px solid var(--color-cream-200);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-purple-500);
+}
+
+/* Visible focus ring everywhere for keyboard users — important for an older audience */
+:focus-visible {
+  outline: 3px solid var(--color-violet-600);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
